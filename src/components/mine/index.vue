@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer class="userInfo" color="#140B26">
+    <v-navigation-drawer class="userInfo" color="#140B26" fixed>
         <div class="user-avatar-wrapper">
             <div class="avatar">
                 <img src="@/assets/images/avatar.png" alt="">
@@ -9,16 +9,6 @@
                 <span class="mark">签到</span>
             </div>
         </div>
-<!--        <v-list-item two-line :class="miniVariant && 'px-0'" class="d-flex ">-->
-<!--            <v-list-item-avatar>-->
-<!--                <img src="@/assets/images/avatar.png" alt="">-->
-<!--            </v-list-item-avatar>-->
-
-<!--            <v-list-item-content class="justify-space-around">-->
-<!--                <v-list-item-title style="color: #fff;">Daisy</v-list-item-title>-->
-<!--                <v-list-item-subtitle style="color: #fff;">签到</v-list-item-subtitle>-->
-<!--            </v-list-item-content>-->
-<!--        </v-list-item>-->
         <v-list class="list-wrapper">
             <v-list-item>
                 <a href="">
