@@ -1,20 +1,24 @@
 <template>
     <v-navigation-drawer class="userInfo" color="#140B26">
+        <div class="user-avatar-wrapper">
+            <div class="avatar">
+                <img src="@/assets/images/avatar.png" alt="">
+            </div>
+            <div class="operate">
+                <span class="userName">Daisy</span>
+                <span class="mark">签到</span>
+            </div>
+        </div>
+<!--        <v-list-item two-line :class="miniVariant && 'px-0'" class="d-flex ">-->
+<!--            <v-list-item-avatar>-->
+<!--                <img src="@/assets/images/avatar.png" alt="">-->
+<!--            </v-list-item-avatar>-->
 
-        <v-list-item two-line :class="miniVariant && 'px-0'">
-            <v-list-item-avatar>
-                <img src="@/assets/images/avatar.png">
-            </v-list-item-avatar>
-
-            <v-list-item-content>
-                <v-list-item-title>
-                    <span class="userName">Daisy</span>
-                </v-list-item-title>
-                <v-list-item-subtitle>
-                    <span class="mark">签到</span>
-                </v-list-item-subtitle>
-            </v-list-item-content>
-        </v-list-item>
+<!--            <v-list-item-content class="justify-space-around">-->
+<!--                <v-list-item-title style="color: #fff;">Daisy</v-list-item-title>-->
+<!--                <v-list-item-subtitle style="color: #fff;">签到</v-list-item-subtitle>-->
+<!--            </v-list-item-content>-->
+<!--        </v-list-item>-->
         <v-list class="list-wrapper">
             <v-list-item>
                 <a href="">
@@ -53,26 +57,26 @@
         </div>
         <ul class="song-sheet-wrapper">
             <li>
-        <span class="sheet-name">
-          歌单一
-        </span>
+                <span class="sheet-name">
+                  歌单一
+                </span>
                 <span class="song-count">标记标记标记</span>
             </li>
             <li>
-        <span class="sheet-name">
-          歌单二
-        </span>
+                <span class="sheet-name">
+                  歌单二
+                </span>
                 <span class="song-count">
-          标记标记标记
-        </span>
+                标记标记标记
+                </span>
             </li>
             <li>
-        <span class="sheet-name">
-          歌单三
-        </span>
+            <span class="sheet-name">
+              歌单三
+            </span>
                 <span class="song-count">
-          标记标记标记
-        </span>
+                  标记标记标记
+                </span>
             </li>
         </ul>
         <template v-slot:append>
@@ -108,9 +112,42 @@ export default {
     @import "@/assets/style/index.scss";
 
     .userInfo {
-        height: 100%;
+        /*height: 100vh;*/
         background-color: $color-background;
-
+        .user-avatar-wrapper{
+            padding-top:34px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: row;
+            .avatar{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-right:10px;
+                img{
+                    display: block;
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+            .operate{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                .userName{
+                    color: #fff;
+                    margin-bottom: 8px;
+                }
+                .mark{
+                    color: $color-text-b;
+                    text-align: center;
+                    font-size: $font-size-small-x;
+                    border: 1px solid $color-text-b;
+                    border-radius: 10px;
+                }
+            }
+        }
         .list-wrapper {
             padding: 20px 56px;
 
