@@ -61,9 +61,9 @@
                 </span>
             </li>
             <li>
-            <span class="sheet-name">
-              歌单三
-            </span>
+                <span class="sheet-name">
+                  歌单三
+                </span>
                 <span class="song-count">
                   标记标记标记
                 </span>
@@ -75,12 +75,12 @@
                     <img src="@/assets/images/songimg.png" alt="">
                 </div>
                 <div class="song-detail">
-        <span>
-          大鱼-海棠
-        </span>
                     <span>
-          《大鱼海棠》印象曲
-        </span>
+                      大鱼-海棠
+                    </span>
+                    <span>
+                      《大鱼海棠》印象曲
+                    </span>
                 </div>
             </div>
         </template>
@@ -100,36 +100,42 @@ export default {
 </script>
 <style lang="scss">
     @import "@/assets/style/index.scss";
-
+    *{
+        margin: 0;
+        padding: 0;
+    }
     .userInfo {
-        /*height: 100vh;*/
-        background-color: $color-background;
-        .user-avatar-wrapper{
-            padding-top:34px;
+        .user-avatar-wrapper {
+            padding-top: 34px;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-direction: row;
-            .avatar{
+
+            .avatar {
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                margin-right:10px;
-                img{
+                margin-right: 10px;
+
+                img {
                     display: block;
                     width: 50px;
                     height: 50px;
                 }
             }
-            .operate{
+
+            .operate {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
-                .userName{
+
+                .userName {
                     color: #fff;
                     margin-bottom: 8px;
                 }
-                .mark{
+
+                .mark {
                     color: $color-text-b;
                     text-align: center;
                     font-size: $font-size-small-x;
@@ -138,6 +144,7 @@ export default {
                 }
             }
         }
+
         .list-wrapper {
             padding: 20px 56px;
 
