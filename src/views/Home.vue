@@ -2,18 +2,15 @@
     <div class="home">
         <div class="top-content">
             <div class="bg">
-                <div class="wrap-bg">
-                    <div class="carousel">
-                        <v-carousel hide-delimiters height="200">
-                            <v-carousel-item
-                                    v-for="(item,i) in items"
-                                    :key="i"
-                                    :src="item.src"
-                            ></v-carousel-item>
-                        </v-carousel>
-                    </div>
+                <div class="carousel">
+                    <v-carousel hide-delimiters height="100%">
+                        <v-carousel-item
+                                v-for="(item,i) in items"
+                                :key="i"
+                                :src="item.src"
+                        ></v-carousel-item>
+                    </v-carousel>
                 </div>
-
             </div>
             <div class="recently d-none d-lg-flex d-xl-none flex-lg-column">
                 <p class="title-rec">最近播放</p>
@@ -74,7 +71,11 @@
                         </div>
                     </li>
                 </ul>
+                <div class="more d-flex justify-center">查看更多</div>
             </div>
+        </div>
+        <div class="content">
+            <RecommendSheet></RecommendSheet>
         </div>
     </div>
 
@@ -82,25 +83,27 @@
 
 <script>
 // @ is an alias to /src
-
+import RecommendSheet from "@/components/RecommendSheet";
 
 export default {
     name: 'Home',
-    components: {},
+    components: {
+        RecommendSheet
+    },
     data () {
         return {
             items: [
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/squirrel.jpg',
+                    src: 'http://contentcms-bj.cdn.bcebos.com/cmspic/dadade34fa2d84dc362db5bd0feda6a1.jpeg?x-bce-process=image/crop,x_0,y_0,w_930,h_506',
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/sky.jpg',
+                    src: 'http://contentcms-bj.cdn.bcebos.com/cmspic/0e04898c4e06e3e1756563489dd9797d.jpeg?x-bce-process=image/crop,x_0,y_0,w_930,h_506',
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/bird.jpg',
+                    src: 'http://contentcms-bj.cdn.bcebos.com/cmspic/12de0a6dae19642e0e7cb27042717f52.jpeg?x-bce-process=image/crop,x_0,y_0,w_900,h_489',
                 },
                 {
-                    src: 'https://cdn.vuetifyjs.com/images/carousel/planet.jpg',
+                    src: 'http://contentcms-bj.cdn.bcebos.com/cmspic/e56920dbf4671a80927e562cf430eedf.jpeg?x-bce-process=image/crop,x_0,y_0,w_930,h_506',
                 },
             ],
         }
@@ -120,13 +123,11 @@ export default {
             .bg{
                 height: 100%;
                 flex: 3;
-                .wrap-bg {
-                    background: url('../assets/images/bg.png') no-repeat;
-                    background-size: cover;
-                    height: 70%;
-                }
                 .carousel{
-                    width: 40%;
+                    background-color: $color-background-bb;
+                    width: 100%;
+                    border-radius: 10px;
+                    height: 100%;
                     img{
                         display: block;
                         width: 100%;
@@ -192,6 +193,8 @@ export default {
                 }
             }
         }
-
+        .content{
+            padding: 0 42px;
+        }
     }
 </style>
