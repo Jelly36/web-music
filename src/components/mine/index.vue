@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer class="userInfo" color="#140B26" fixed>
+    <v-navigation-drawer class="userInfo" color="#140B26" fixed hide-overlay>
         <div class="user-avatar-wrapper">
             <div class="avatar">
                 <img src="@/assets/images/avatar.png" alt="">
