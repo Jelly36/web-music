@@ -13,7 +13,7 @@
             <v-list-item>
                 <a href="">
                     <i class="iconfont icon-shouye"></i>
-                    <span>音乐台</span>
+                    <span>发现音乐</span>
                 </a>
             </v-list-item>
             <v-list-item>

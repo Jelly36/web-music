@@ -1,7 +1,7 @@
 <template>
     <div class="rec-sheet">
         <div class="title">
-            <span>推荐歌单</span>
+            <span>热门歌手</span>
             <span>更多</span>
         </div>
         <ul class="d-flex justify-space-between flex-row flex-wrap">
@@ -9,61 +9,80 @@
                 <a href="">
                     <img src="@/assets/images/bg.png" alt="">
                 </a>
-                <div class="desc d-flex flex-column">
-                    <span>Big Girl Big</span>
-                    <span>Bei Maejor</span>
+                <div class="desc ">
+                    <span>Daisy</span>
                 </div>
             </li>
             <li class="d-flex flex-column">
                 <a href="">
                     <img src="@/assets/images/bg.png" alt="">
                 </a>
-                <div class="desc d-flex flex-column">
-                    <span>Big Girl Big</span>
-                    <span>Bei Maejor</span>
+                <div class="desc ">
+                    <span>Daisy</span>
                 </div>
             </li>
             <li class="d-flex flex-column">
                 <a href="">
                     <img src="@/assets/images/bg.png" alt="">
                 </a>
-                <div class="desc d-flex flex-column">
-                    <span>Big Girl Big</span>
-                    <span>Bei Maejor</span>
+                <div class="desc ">
+                    <span>Daisy</span>
                 </div>
             </li>
             <li class="d-flex flex-column">
                 <a href="">
                     <img src="@/assets/images/bg.png" alt="">
                 </a>
-                <div class="desc d-flex flex-column">
-                    <span>Big Girl Big</span>
-                    <span>Bei Maejor</span>
+                <div class="desc ">
+                    <span>Daisy</span>
                 </div>
             </li>
             <li class="d-flex flex-column">
                 <a href="">
                     <img src="@/assets/images/bg.png" alt="">
                 </a>
-                <div class="desc d-flex flex-column">
-                    <span>Big Girl Big</span>
-                    <span>Bei Maejor</span>
+                <div class="desc ">
+                    <span>Daisy</span>
                 </div>
             </li>
             <li class="d-flex flex-column">
                 <a href="">
                     <img src="@/assets/images/bg.png" alt="">
                 </a>
-                <div class="desc d-flex flex-column">
-                    <span>Big Girl Big</span>
-                    <span>Bei Maejor</span>
+                <div class="desc ">
+                    <span>Daisy</span>
                 </div>
             </li>
+            <li class="d-flex flex-column">
+                <a href="">
+                    <img src="@/assets/images/bg.png" alt="">
+                </a>
+                <div class="desc ">
+                    <span>Daisy</span>
+                </div>
+            </li>
+            <li class="d-flex flex-column">
+                <a href="">
+                    <img src="@/assets/images/bg.png" alt="">
+                </a>
+                <div class="desc ">
+                    <span>Daisy</span>
+                </div>
+            </li>
+            <li class="d-flex flex-column">
+                <a href="">
+                    <img src="@/assets/images/bg.png" alt="">
+                </a>
+                <div class="desc ">
+                    <span>Daisy</span>
+                </div>
+            </li>
+
         </ul>
     </div>
 </template>
 <script>
-    export default {}
+export default {}
 
 </script>
 <style lang="scss" scoped>
@@ -99,19 +118,17 @@
             li{
                 img{
                     display: block;
-                    width: 150px;
-                    height: 150px;
-                    border-radius: 10px;
+                    width: 100px;
+                    height: 100px;
+                    border-radius: 50%;
                 }
                 .desc{
+                    text-align: center;
                     margin-top: 10px;
-                    span:first-child{
+                    span{
+
                         color: #fff;
-                        margin-bottom: 3px;
-                    }
-                    span:last-child{
-                        color: $color-text-g;
-                        font-size: $font-size-small-ss
+
                     }
                 }
 

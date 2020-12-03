@@ -2,6 +2,7 @@
     <div class="home">
         <div class="top-content">
             <div class="bg">
+                <Search></Search>
                 <div class="carousel">
                     <v-carousel hide-delimiters height="100%">
                         <v-carousel-item
@@ -76,6 +77,10 @@
         </div>
         <div class="content">
             <RecommendSheet></RecommendSheet>
+            <RecommendSinger></RecommendSinger>
+            <div class="wrap d-flex flex-row">
+                <HotSongList></HotSongList>
+            </div>
         </div>
     </div>
 
@@ -84,11 +89,16 @@
 <script>
 // @ is an alias to /src
 import RecommendSheet from "@/components/RecommendSheet";
-
+import RecommendSinger from "@/components/RecommendSinger";
+import HotSongList from "@/components/HotSongList";
+import Search from "@/components/Search"
 export default {
     name: 'Home',
     components: {
-        RecommendSheet
+        RecommendSheet,
+        RecommendSinger,
+        HotSongList,
+        Search
     },
     data () {
         return {
@@ -127,7 +137,7 @@ export default {
                     background-color: $color-background-bb;
                     width: 100%;
                     border-radius: 10px;
-                    height: 100%;
+                    height: 80%;
                     img{
                         display: block;
                         width: 100%;
