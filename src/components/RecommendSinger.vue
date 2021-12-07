@@ -5,84 +5,30 @@
             <span>更多</span>
         </div>
         <ul class="d-flex justify-space-between flex-row flex-wrap">
-            <li class="d-flex flex-column">
+            <li class="d-flex flex-column" v-for="item in hotSinger" :key="item.id">
                 <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
+                    <img :src="item.picUrl" alt="">
                 </a>
                 <div class="desc ">
-                    <span>Daisy</span>
+                    <span>{{item.name}}</span>
                 </div>
             </li>
-            <li class="d-flex flex-column">
-                <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
-                </a>
-                <div class="desc ">
-                    <span>Daisy</span>
-                </div>
-            </li>
-            <li class="d-flex flex-column">
-                <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
-                </a>
-                <div class="desc ">
-                    <span>Daisy</span>
-                </div>
-            </li>
-            <li class="d-flex flex-column">
-                <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
-                </a>
-                <div class="desc ">
-                    <span>Daisy</span>
-                </div>
-            </li>
-            <li class="d-flex flex-column">
-                <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
-                </a>
-                <div class="desc ">
-                    <span>Daisy</span>
-                </div>
-            </li>
-            <li class="d-flex flex-column">
-                <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
-                </a>
-                <div class="desc ">
-                    <span>Daisy</span>
-                </div>
-            </li>
-            <li class="d-flex flex-column">
-                <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
-                </a>
-                <div class="desc ">
-                    <span>Daisy</span>
-                </div>
-            </li>
-            <li class="d-flex flex-column">
-                <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
-                </a>
-                <div class="desc ">
-                    <span>Daisy</span>
-                </div>
-            </li>
-            <li class="d-flex flex-column">
-                <a href="">
-                    <img src="@/assets/images/bg.png" alt="">
-                </a>
-                <div class="desc ">
-                    <span>Daisy</span>
-                </div>
-            </li>
+
 
         </ul>
     </div>
 </template>
 <script>
-export default {}
+export default {
+    props: {
+        hotSinger: {
+            type: Array,
+            default(){
+                return []
+            }
+        }
+    }
+}
 
 </script>
 <style lang="scss" scoped>

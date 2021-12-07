@@ -15,8 +15,8 @@
                 </thead>
                 <tbody>
                 <tr v-for="(item, index) in desserts" :key="index">
-                    <td>{{ item.name }}</td>
-                    <td>{{ item.singer }}</td>
+                    <td><a href="">{{ item.name }}</a></td>
+                    <td><a href="">{{ item.singer }}</a></td>
                     <td>{{ item.special }}</td>
                     <td>{{ item.time }}</td>
                 </tr>
@@ -83,6 +83,29 @@ export default {
             background-color: transparent !important;
             border-left: none;
             color: $color-text-lb;
+            .v-data-table__wrapper{
+                thead{
+                    tr{
+                        th{
+                            color: #fff;
+                            width: 160px;
+                        }
+                    }
+                }
+                tbody{
+                    tr{
+                        td{
+                            a{
+                                color: $color-text-lb;
+
+                            }
+                        }
+                        &:hover{
+                            background-color: transparent !important;
+                        }
+                    }
+                }
+            }
         }
     }
 </style>

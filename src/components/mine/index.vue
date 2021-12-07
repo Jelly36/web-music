@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer class="userInfo" color="#140B26" fixed hide-overlay>
+    <v-navigation-drawer class="userInfo" color="#140B26" fixed hide-overlay app>
         <div class="user-avatar-wrapper">
             <div class="avatar">
                 <img src="@/assets/images/avatar.png" alt="">
@@ -11,34 +11,34 @@
         </div>
         <v-list class="list-wrapper">
             <v-list-item>
-                <a href="">
+                <router-link tag="div" to="/" class="menu-list">
                     <i class="iconfont icon-shouye"></i>
                     <span>发现音乐</span>
-                </a>
+                </router-link>
             </v-list-item>
             <v-list-item>
-                <a href="">
+                <router-link tag="div"  to="/rank" class="menu-list">
                     <i class="iconfont icon-paihangbang"></i>
                     <span>排行榜</span>
-                </a>
+                </router-link>
             </v-list-item>
             <v-list-item>
-                <a href="">
+                <router-link tag="div" to="/video" class="menu-list">
                     <i class="iconfont icon-shipin"></i>
                     <span>MV</span>
-                </a>
+                </router-link>
             </v-list-item>
             <v-list-item>
-                <a href="">
+                <router-link tag="div"  to="/fm" class="menu-list">
                     <i class="iconfont icon-erji"></i>
                     <span>个人电台</span>
-                </a>
+                </router-link>
             </v-list-item>
             <v-list-item>
-                <a href="">
+                <router-link tag="div" to="/fav" class="menu-list">
                     <i class="iconfont icon-xihuan"></i>
                     <span>我喜欢</span>
-                </a>
+                </router-link>
             </v-list-item>
         </v-list>
         <div class="song-sheet">
@@ -148,8 +148,11 @@ export default {
         .list-wrapper {
             padding: 20px 56px;
 
-            .v-list {
-
+            .v-list-item{
+                .router-link-exact-active{
+                    color: #fff;
+                    font-size: $font-size-medium;
+                }
             }
 
             i {
@@ -159,10 +162,11 @@ export default {
 
             }
 
-            a {
+            .menu-list {
                 color: $color-text-g;
                 letter-spacing: 2px;
-                font-size: $font-size-medium;
+                cursor: pointer;
+                font-size: $font-size-small-x;
             }
         }
 

@@ -6,80 +6,83 @@
                 <div class="carousel">
                     <v-carousel hide-delimiters height="100%">
                         <v-carousel-item
-                                v-for="(item,i) in items"
+                                v-for="(item,i) in banner"
                                 :key="i"
-                                :src="item.src"
+                                :src="item.imageUrl"
                         ></v-carousel-item>
                     </v-carousel>
                 </div>
             </div>
-            <div class="recently d-none d-lg-flex d-xl-none flex-lg-column">
-                <p class="title-rec">最近播放</p>
-                <ul class="recent-wrapper">
-                    <li>
-                        <div>
-                            <img src="@/assets/images/songimg.png" alt="">
-                        </div>
-                        <div>
+            <div class="recently d-none d-lg-flex d-xl-none flex-lg-column" v-if="loginStatus">
+                <template>
+                    <p class="title-rec">最近播放</p>
+                    <ul class="recent-wrapper">
+                        <li>
+                            <div>
+                                <img src="@/assets/images/songimg.png" alt="">
+                            </div>
+                            <div>
                             <span class="song-name">
                                 My Secret Life
                             </span>
-                            <span class="song-count">Leonard</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img src="@/assets/images/songimg.png" alt="">
-                        </div>
-                        <div>
+                                <span class="song-count">Leonard</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="@/assets/images/songimg.png" alt="">
+                            </div>
+                            <div>
                             <span class="song-name">
                                 My Secret Life
                             </span>
-                            <span class="song-count">Leonard</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img src="@/assets/images/songimg.png" alt="">
-                        </div>
-                        <div>
+                                <span class="song-count">Leonard</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="@/assets/images/songimg.png" alt="">
+                            </div>
+                            <div>
                             <span class="song-name">
                                 My Secret Life
                             </span>
-                            <span class="song-count">Leonard</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img src="@/assets/images/songimg.png" alt="">
-                        </div>
-                        <div>
+                                <span class="song-count">Leonard</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="@/assets/images/songimg.png" alt="">
+                            </div>
+                            <div>
                             <span class="song-name">
                                 My Secret Life
                             </span>
-                            <span class="song-count">Leonard</span>
-                        </div>
-                    </li>
-                    <li>
-                        <div>
-                            <img src="@/assets/images/songimg.png" alt="">
-                        </div>
-                        <div>
+                                <span class="song-count">Leonard</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <img src="@/assets/images/songimg.png" alt="">
+                            </div>
+                            <div>
                             <span class="song-name">
                                 My Secret Life
                             </span>
-                            <span class="song-count">Leonard</span>
-                        </div>
-                    </li>
-                </ul>
-                <div class="more d-flex justify-center">查看更多</div>
+                                <span class="song-count">Leonard</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="more d-flex justify-center">查看更多</div>
+                </template>
             </div>
         </div>
         <div class="content">
-            <RecommendSheet></RecommendSheet>
-            <RecommendSinger></RecommendSinger>
+            <RecommendSheet :sheet="playList"></RecommendSheet>
+            <RecommendSinger :hotSinger="hotSinger"></RecommendSinger>
             <div class="wrap d-flex flex-row">
                 <HotSongList></HotSongList>
+                <HotVideo></HotVideo>
             </div>
         </div>
     </div>
@@ -91,32 +94,67 @@
 import RecommendSheet from "@/components/RecommendSheet";
 import RecommendSinger from "@/components/RecommendSinger";
 import HotSongList from "@/components/HotSongList";
+import HotVideo from "@/components/HotVideo";
 import Search from "@/components/Search"
+
+import { getBanner, getHotSinger, getPlayList,getMv } from '@/assets/service/request'
 export default {
     name: 'Home',
     components: {
         RecommendSheet,
         RecommendSinger,
         HotSongList,
+        HotVideo,
         Search
     },
     data () {
         return {
-            items: [
-                {
-                    src: 'http://contentcms-bj.cdn.bcebos.com/cmspic/dadade34fa2d84dc362db5bd0feda6a1.jpeg?x-bce-process=image/crop,x_0,y_0,w_930,h_506',
-                },
-                {
-                    src: 'http://contentcms-bj.cdn.bcebos.com/cmspic/0e04898c4e06e3e1756563489dd9797d.jpeg?x-bce-process=image/crop,x_0,y_0,w_930,h_506',
-                },
-                {
-                    src: 'http://contentcms-bj.cdn.bcebos.com/cmspic/12de0a6dae19642e0e7cb27042717f52.jpeg?x-bce-process=image/crop,x_0,y_0,w_900,h_489',
-                },
-                {
-                    src: 'http://contentcms-bj.cdn.bcebos.com/cmspic/e56920dbf4671a80927e562cf430eedf.jpeg?x-bce-process=image/crop,x_0,y_0,w_930,h_506',
-                },
+            loginStatus: false,
+            hotSinger: [],
+            banner: [
+
             ],
+            playList: []
         }
+    },
+    methods: {
+        _getBanner() {
+            getBanner().then(res => {
+                if(res.code === 200) {
+                    this.banner = res.banners.map(item => {
+                        return {
+                            imageUrl: item.imageUrl,
+                            id: item.targetId,
+                            url: item.url,
+                            typeTitle: item.typeTitle,
+                            titleColor: item.titleColor
+                        }
+                    })
+                }
+            });
+        },
+        _getHotSinger() {
+            getHotSinger().then(res=> {
+                this.hotSinger = res.artists
+            })
+        },
+        _getPlayList(){
+            getPlayList().then(res => {
+                this.playList = res.playlists
+            })
+        },
+        _getMv(){
+            console.log('dfdf')
+            getMv().then(res => {
+                console.log(res,'dfdsf')
+            })
+        }
+    },
+    mounted() {
+       this. _getBanner()
+        this._getHotSinger()
+        this._getPlayList()
+        this._getMv()
     }
 }
 </script>
@@ -133,6 +171,7 @@ export default {
             .bg{
                 height: 100%;
                 flex: 3;
+                width: 600px;
                 .carousel{
                     background-color: $color-background-bb;
                     width: 100%;
